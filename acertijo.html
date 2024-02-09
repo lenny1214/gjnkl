@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Preguntas</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Formulario de Preguntas</h1>
+        <form id="preguntaForm" action="index.html" method="GET" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="respuesta1">¿Tienen relación Git y Docker?</label>
+                <input type="text" class="form-control" id="respuesta1" name="respuesta1" required>
+                <div class="invalid-feedback">Por favor ingresa una respuesta.</div>
+            </div>
+            <button type="button" id="btnPregunta1" class="btn btn-primary mb-3">Responder</button>
+            <div id="pregunta2" style="display: none;">
+                <div class="form-group">
+                    <label for="respuesta2">En qué se relacionan?</label>
+                    <select class="form-control" id="respuesta2" name="respuesta2" required>
+                        <option value="">Seleccione una respuesta</option>
+                        <option value="falsa">Git y docker son prácticamente lo mismo</option>
+                        <option value="correcta">Git se utiliza para controlar versiones de código y Docker para contener aplicaciones</option>
+                        <option value="falsa">Git se utiliza para contener aplicaciones, y docker para controlarlas</option>
+                    </select>
+                    <div class="invalid-feedback">Por favor selecciona una respuesta.</div>
+                </div>
+            </div>
+            <button type="submit" id="enviarBtn" class="btn btn-success" style="display: none;">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('btnPregunta1').addEventListener('click', function() {
+            var respuesta1 = document.getElementById('respuesta1').value.toLowerCase();
+
+            if (respuesta1 === 'si') {
+                document.getElementById('pregunta2').style.display = 'block';
+            } else {
+                alert('Respuesta incorrecta. Inténtalo de nuevo.');
+            }
+        });
+
+        document.getElementById('respuesta2').addEventListener('change', function() {
+            var respuesta2 = this.value;
+
+            if (respuesta2 === 'correcta') {
+                document.getElementById('enviarBtn').style.display = 'block';
+            }
+        });
+
+        document.getElementById('preguntaForm').addEventListener('submit', function(event) {
+            var respuesta1 = document.getElementById('respuesta1').value.toLowerCase();
+            var respuesta2 = document.getElementById('respuesta2').value;
+
+            if (respuesta1 !== 'si' || respuesta2 !== 'correcta') {
+                alert('Por favor, responde correctamente ambas preguntas antes de enviar el formulario.');
+                event.preventDefault(); // Evita que se envíe el formulario si las respuestas son incorrectas
+            }
+        });
+    </script>
+</body>
+</html>

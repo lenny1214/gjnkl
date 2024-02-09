@@ -1,0 +1,31 @@
+body {
+    background-image: url('/img/fondo.jpg'); /* Cambia 'fondo_tetrico.jpg' por la ruta de tu imagen de fondo */
+    background-size: cover;
+    
+    font-family: Arial, sans-serif;
+    color: #ff5733; /* Color de las letras de fuego */
+    text-align: center;
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-color: #2f2f2f;
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: 300px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.enlace {
+    font-size: 24px;
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px #555555;
+}
+
+.enlace a {
+    color: #ff5733; /* Color del enlace */
+    text-decoration: none;
+}
+
+.enlace a:hover {
+    text-decoration: underline;
+}
